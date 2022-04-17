@@ -1,0 +1,187 @@
+<div class="page-header">
+  <h3 class="page-title">
+    <span class="page-title-icon bg-gradient-primary text-white mr-2">
+      <i class="mdi mdi-account-plus"></i>
+    </span>
+    <b>Add Student</b>
+  </h3>
+</div>
+<div class="row">
+  <div class="col-lg-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add Student Info</h4>
+        <form class="form-sample" (ngSubmit)="onSubmit()" [formGroup]="addStudent">
+          <p class="card-description">All Fields Should be Filled.</p>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">First Name <a style="color: red">*</a></label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="fname" id="fname"
+                    [ngClass]="{'is-invalid': (fname.dirty || fname.touched) && fname.errors}">
+                  <div *ngIf="(fname.dirty || fname.touched) && fname.errors" class="errors" style="color: red;">
+                    <span *ngIf="fname.errors?.required">First Name is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Gender <a style="color: red">*</a></label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="gender" 
+                      [ngClass]="{'is-invalid': (gender.dirty || gender.touched) && gender.errors}">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>other</option>
+                  </select>  
+                  <div *ngIf="(gender.dirty || gender.touched) && gender.errors" style="color: red;">
+                    <span *ngIf="gender.errors?.required">Gender is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Middle Name<a style="color: red">*</a></label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="mname" id="mname"  [ngClass]="{'is-invalid': (mname.dirty || mname.touched) && mname.errors}"/>
+                  <div *ngIf="(mname.dirty || mname.touched) && mname.errors" class="errors" style="color: red;">
+                    <span *ngIf="mname.errors?.required">Middle Name is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Department<a style="color: red">*</a></label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="dept" 
+                    [ngClass]="{'is-invalid': (dept.dirty || dept.touched) && dept.errors}">
+                    
+                    <option>Information Technology</option>
+                    <option>Computer Engineering</option>
+                    <option>Electronic Engineering</option>
+                    <option> ELECTRONICS AND TELECOMMUNICATION ENGINEERING</option>
+                    <option>Eletrical Engineering</option>
+                    <option>Intrumentation Engineering</option>
+                    <option>Mechanical Engineering</option>
+                  </select>
+                  <div *ngIf="(dept.dirty || dept.touched) && dept.errors" style="color: red;">
+                    <span *ngIf="dept.errors?.required">Department is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Last Name <a style="color: red">*</a></label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="lname"
+                  [ngClass]="{'is-invalid': (lname.dirty || lname.touched) && lname.errors}" />
+                  <div *ngIf="(lname.dirty || lname.touched) && lname.errors" style="color: red;">
+                    <span *ngIf="lname.errors?.required">Last Name is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Date of Birth<a style="color: red">*</a></label>
+                <div class="col-sm-9">
+                  <input type="date" class="form-control" formControlName="dob"
+                    [ngClass]="{'is-invalid': (dob.dirty || dob.touched) && dob.errors}" />
+                    <div *ngIf="(dob.dirty || dob.touched) && dob.errors" style="color: red;">
+                      <span *ngIf="dob.errors?.required">Date of Birth is Required</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">PRN Number <a style="color: red">*</a></label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="prn" 
+                    [ngClass]="{'is-invalid': (prn.dirty || prn.touched) && prn.errors}"/>
+                    <div *ngIf="(prn.dirty || prn.touched) && prn.errors" style="color: red;">
+                      <span *ngIf="prn.errors?.required">PRN Number is Required</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Email <a style="color: red">*</a></label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control " formControlName="email"
+                    [ngClass]="{ 'is-invalid': (email.dirty || email.touched) && email.errors }" />
+
+                  <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors" style="color: red;">
+                    <span *ngIf="email.errors?.required">Email is Required</span>
+                    <span *ngIf="email.errors?.email || email.errors?.pattern">Please Enter Proper Email Address</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Password <a style="color: red">*</a></label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" formControlName="password"
+                    [ngClass]="{ 'is-invalid': (password.dirty || password.touched) && password.errors }" />
+
+                  <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors"
+                    style="color: red;">
+                    <span *ngIf="password.errors?.required">Password is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Confirm Password <a style="color: red">*</a></label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="cpass" formControlName="cpass" placeholder="re-enter Password" style="font-family: 'Karla', sans-serif;">
+                  <!-- 
+                  <div *ngIf="(cpass.dirty || cpass.touched) && cpass.errors" class="errors"
+                  style="color: red;">
+                  <span *ngIf="cpass.errors?.required">Confirm Password is Required</span>
+                </div> -->
+                <div *ngIf="cpass.touched && cpass.invalid" style="color: red;">
+                  <div *ngIf="cpass.errors.required" style="font-family: 'Karla', sans-serif;">Confirm password is required</div>
+                  <div *ngIf="cpass.hasError('mismatch')" style="font-family: 'Karla', sans-serif;">Confirm Password don't match.</div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit" class="btn btn-gradient-primary btn-lg btn-block" [disabled]="!addStudent.valid">
+              <i class="mdi mdi-account-plus"></i>
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<!-- 
+  <button (click)="showSuccess()">su</button>
+  <button (click)="showError()">err</button> -->
+</div>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-atom" [fullScreen]="true">
+  <p style="color: white"> {{ spx }} </p>
+</ngx-spinner>

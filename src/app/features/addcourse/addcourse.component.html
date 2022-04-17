@@ -1,0 +1,453 @@
+<div class="page-header">
+  <h3 class="page-title">
+    <span class="page-title-icon bg-gradient-primary text-white mr-2">
+      <i class="mdi mdi-book"></i>
+    </span>
+    <b>Add Course</b>
+  </h3>
+</div>
+<div class="row">
+  <div class="col-lg-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add Course Info</h4>
+        <form [formGroup]="addCourse" (ngSubmit)="onSubmit()">
+          <p class="card-description">All Fields Should be Filled.</p>
+          <div
+            *ngIf="alert"
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+          >
+            <strong>Data saved Successfully</strong>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"
+                  >Course Title <a style="color: red">*</a></label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="courseTitle"
+                    [ngClass]="{
+                      'is-invalid':
+                        (courseTitle.dirty || courseTitle.touched) &&
+                        courseTitle.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="
+                      (courseTitle.dirty || courseTitle.touched) &&
+                      courseTitle.errors
+                    "
+                    style="color: red"
+                  >
+                    <span *ngIf="courseTitle.errors?.required"
+                      >Course Title is Required</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"
+                  >Course Sub-title <a style="color: red">*</a></label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="courseSubTitle"
+                    [ngClass]="{
+                      'is-invalid':
+                        (courseSubTitle.dirty || courseSubTitle.touched) &&
+                        courseSubTitle.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="
+                      (courseSubTitle.dirty || courseSubTitle.touched) &&
+                      courseSubTitle.errors
+                    "
+                    style="color: red"
+                  >
+                    <span *ngIf="courseSubTitle.errors?.required"
+                      >Course Sub-title is Required</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"
+                  >Course Category <a style="color: red">*</a></label
+                >
+                <div class="col-sm-9">
+                  <select
+                    class="form-control"
+                    formControlName="courseCategory"
+                    [ngClass]="{
+                      'is-invalid':
+                        (courseCategory.dirty || courseCategory.touched) &&
+                        courseCategory.errors
+                    }"
+                  >
+                    <option>INFORMATION TECHNOLOGY</option>
+                    <option>COMPUTER ENGINEERING</option>
+                    <option>ELECTRONIC ENGINEERING</option>
+                    <option>ELECTRICAL ENGINEERING</option>
+                    <option>INSTRUMENTATION ENGINEERING</option>
+                    <option>MECHANICAL ENGINEERING</option>
+                    <option>
+                      ELECTRONICS AND TELECOMMUNICATION ENGINEERING
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="
+                      (courseCategory.dirty || courseCategory.touched) &&
+                      courseCategory.errors
+                    "
+                    style="color: red"
+                  >
+                    <span *ngIf="courseCategory.errors?.required"
+                      >Course Category is Required</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"
+                  >Course Description <a style="color: red">*</a></label
+                >
+                <div class="col-sm-9">
+                  <textarea
+                    type="text"
+                    rows="6"
+                    cols="50"
+                    class="form-control"
+                    formControlName="courseDescription"
+                    [ngClass]="{
+                      'is-invalid':
+                        (courseDescription.dirty ||
+                          courseDescription.touched) &&
+                        courseDescription.errors
+                    }"
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      (courseDescription.dirty || courseDescription.touched) &&
+                      courseDescription.errors
+                    "
+                    style="color: rgb(252, 239, 239)"
+                  >
+                    <span *ngIf="courseDescription.errors?.required"
+                      >Course Description is Required</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"
+                  >Course Language <a style="color: red">*</a></label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="courseLanguage"
+                    [ngClass]="{
+                      'is-invalid':
+                        (courseLanguage.dirty || courseLanguage.touched) &&
+                        courseLanguage.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="
+                      (courseLanguage.dirty || courseLanguage.touched) &&
+                      courseLanguage.errors
+                    "
+                    style="color: red"
+                  >
+                    <span *ngIf="courseLanguage.errors?.required"
+                      >Course Language is Required</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"
+                  >Professor Name<a style="color: red">*</a></label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="ProfessorName"
+                    [ngClass]="{
+                      'is-invalid':
+                        (ProfessorName.dirty || ProfessorName.touched) &&
+                        ProfessorName.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="
+                      (ProfessorName.dirty || ProfessorName.touched) &&
+                      ProfessorName.errors
+                    "
+                    style="color: red"
+                  >
+                    <span *ngIf="ProfessorName.errors?.required"
+                      >Professor Name is Required</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"
+                  >Course Image <a style="color: red">*</a></label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="file"
+                    class="form-control"
+                    #takeInput
+                    (change)="onFileSelecte($event)"
+                    accept="image/jpeg , image/jpg , image/png"
+                    [ngClass]="{
+                      'is-invalid':
+                        (courseImage.dirty || courseImage.touched) &&
+                        courseImage.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="
+                      (courseImage.dirty || courseImage.touched) &&
+                      courseImage.errors
+                    "
+                    style="color: red"
+                  >
+                    <span *ngIf="courseImage.errors?.required"
+                      >Course Image is Required</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-12" formArrayName="courseSection">
+              <!---Section box-->
+              <section
+                class="container border mb-4 p-3"
+                *ngFor="let section of courseSection().controls; let i = index"
+              >
+                <div [formGroupName]="i">
+                  <h4>Section {{ i + 1 }}</h4>
+                  <br />
+
+                  <!---Section add-->
+                  <div class="row">
+                    <div class="col-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="sectionNm"
+                      /><br />
+                    </div>
+
+                    <div class="col-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="sectionDesc"
+                        placeholder="Section Description"
+                      /><br />
+                    </div>
+                  </div>
+
+                  <div formArrayName="courseSectionLecture">
+                    <section
+                      class="container border mb-4 p-3"
+                      *ngFor="
+                        let lecture of courseSectionLecture(i).controls;
+                        let j = index
+                      "
+                    >
+                      <div [formGroupName]="j">
+                        <div class="row">
+                          <div class="col-6">
+                            <h4>Lecture {{ j + 1 }}</h4>
+                          </div>
+                          <div class="col-6 text-right">
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-sm"
+                              *ngIf="courseSectionLecture(i).length > 1"
+                              (click)="removeCourseSectionLecture(i, j)"
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label>Lecture Name</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                formControlName="lectureNm"
+                                placeholder="Lecture Name"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="lectureDesc"
+                                >Lecture Description</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                formControlName="lectureDesc"
+                                placeholder="Lecture Description"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="form-group">
+                              <label for="vidURL">Upload course</label>
+                              <input
+                                type="file"
+                                class="form-control-file"
+                                #takeInput
+                                (change)="onFilevideos($event, i, j)"
+                                accept="video/mp4"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <hr />
+                        <button
+                          type="button"
+                          class="btn btn-primary mb-2"
+                          (click)="addCourseSectionLecture(i)"
+                        >
+                          Add Lecture
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+
+                  <!-- add Courses section -->
+                  <button
+                    type="button"
+                    class="btn btn-primary mb-2"
+                    (click)="addCourseSection(i + 2)"
+                  >
+                    Add Section
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger btn-sm"
+                    *ngIf="courseSection().length > 1"
+                    (click)="removeCourseSection(i)"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </section>
+
+              <!--  -->
+            </div>
+          </div>
+
+          <!---- Start Multiple files upload course-->
+
+          <!-- <input type="file" class="form-control" (change)="save($event)" multiple="multiple" /><br>
+                    <span>{{result}}</span><br> -->
+
+          <!---- End Multiple files upload course-->
+
+          <div class="row">
+            <button
+              type="submit"
+              class="btn btn-gradient-primary btn-lg btn-block"
+              [disabled]="!addCourse.valid"
+            >
+              <!-- <i class="mdi mdi-account-plus"></i> -->
+              Submit
+            </button>
+          </div>
+          <br />
+          <div class="row">
+            <button
+              (click)="clear()"
+              class="btn btn-gradient-success btn-lg btn-block"
+            >
+              <!-- <i class="mdi mdi-account-plus"></i> -->
+              cancel
+            </button>
+          </div>
+          <!-- <button class="btn btn-light">Cancel</button> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-atom"
+  [fullScreen]="true"
+>
+  <p style="color: white">{{ spx }}</p>
+</ngx-spinner>
+
+<ngx-spinner
+  name="spinner-2"
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="large"
+  color="#fff"
+  type="pacman"
+  [fullScreen]="true"
+>
+  <br />
+  <p style="color: white">{{ spx }}</p></ngx-spinner
+>
